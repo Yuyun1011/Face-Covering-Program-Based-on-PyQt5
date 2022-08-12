@@ -10,6 +10,8 @@
 ```
 pip install PyQt5
 pip install PyQt5-tools
+pip install sys
+pip install os
 ```
 在安装的PyQt库中搜索如下目录
 ```
@@ -48,12 +50,24 @@ PATH: "...\plungins\platforms"
 - 快捷键S：按下之后作用等同于 12 “保存”按钮
 - 快捷键D：按下之后作用等同于 9 “下一张”按钮
 - 快捷键C：按下之后可以清空当前三幅图像上的所有笔迹
-## 5 代码使用说明
-下面的代码为读取
-```python
-self.imageName = "C:\\pyqt\\DATA\\1\\RGB\\CQ1\\120_RGB_CQ1_1_"  # rgb读取路径
-self.imgNum = 8535
-self.imageName_1 = "C:\\pyqt\\DATA\\1\\IR\\CQ1\\120_IR_CQ1_1_"  # ir读取路径
-self.imgNum_1 = 8535
-self.savePath = "C:\\pyqt\\DATA\\1\\face_cover\\"  # 黑图保存路径
+## 5 文件结构
 ```
+1. face_cover.py：实现本项目功能的源代码文件
+2. jpgToPng.py：实现数据集png和jpg格式相互转化的源代码文件
+```
+## 6 代码使用说明
+由于本项目数据集图像的绝对路径结构都是“字符串+数字.jpg”的形式，因此本程序使用数字加减的方式索引不同图像。为了能够使得程序顺利运行，使用者在使用前需要对`face_cover.py`当中的`Winform`类的`open`函数的如下代码进行改动：
+```python
+# 本例绝对路径为"C:\pyqt\DATA\1\RGB\CQ1\120_RGB_CQ1_1_8535.jpg"
+self.imageName = imgName[:37]  # "C:\pyqt\DATA\1\RGB\CQ1\120_RGB_CQ1_1_" 为37个字符
+self.imgNum = int(imgName[37:41])  # “8535”为4个字符
+```
+其中，第一行的[:37]为RBG图像绝对路径“字符串+数字.jpg”字符串字符个数，第二行[37:41]为数字位数。请使用者根据实际情况，改动数值。另外`open_1`函数下的对应位置也应修改，其为打开IR图像的绝对路径。
+```python
+# 本例绝对路径为"C:\pyqt\DATA\1\IR\CQ1\120_IR_CQ1_1_8535.jpg"
+self.imageName_1 = imgName[:35]  # "C:\pyqt\DATA\1\RGB\CQ1\120_RGB_CQ1_1_" 为37个字符
+self.imgNum_1 = int(imgName[35:39])  # “8535”为4个字符
+```
+## 7 尚未解决的bug
+- 1 在作图的时候鼠标单击一次但不拖动时，不能产生笔迹。
+- 2 除了“打开RGB”和“打开IR”的所有按钮事件和所有键盘事件都需要另外点击一下程序窗口才会响应。
