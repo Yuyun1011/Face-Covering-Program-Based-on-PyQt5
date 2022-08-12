@@ -65,7 +65,7 @@ self.imgNum = int(imgName[37:41])  # “8535”为4个字符
 其中，第一行的[:37]为RBG图像绝对路径“字符串+数字.jpg”字符串字符个数，第二行[37:41]为数字位数。请使用者根据实际情况，改动数值。另外`open_1`函数下的对应位置也应修改，其为打开IR图像的绝对路径。
 ```python
 # 本例绝对路径为"C:\pyqt\DATA\1\IR\CQ1\120_IR_CQ1_1_8535.jpg"
-self.imageName_1 = imgName[:35]  # "C:\pyqt\DATA\1\RGB\CQ1\120_RGB_CQ1_1_" 为37个字符
+self.imageName_1 = imgName[:35]  # "C:\pyqt\DATA\1\IR\CQ1\120_IR_CQ1_1_" 为35个字符
 self.imgNum_1 = int(imgName[35:39])  # “8535”为4个字符
 ```
 ## 7 尚未解决的bug
