@@ -29,3 +29,31 @@ PATH: "...\plungins\platforms"
 "C:\Users\Yuyun1011\AppData\Local\Programs\Python\Python39"
 ```
 最后将上述imageformats文件夹整个copy到python.exe文件所在目录下。
+## 4 使用说明
+程序的运行交互界面如下：
+![image](https://user-images.githubusercontent.com/45918664/184276479-f19b02c2-8835-4e08-bee4-76f8abb75723.png)
+- 1 显示打开的RGB图像的绝对路径
+- 2 显示打开的IR图像的绝对路径
+- 3 显示保存的黑色像素图的绝对路径
+- 4 RGB图像的加载位置
+- 5 IR图像的加载位置
+- 6 黑色像素图的加载位置
+- 7 “上一张”按钮，点击后可以同时将当前文件夹下对应的IR和RGB图像的上一幅图像显示出来
+- 8 “打开RGB”按钮， 点击后可以选取需要操作的RGB图像，并显示在4的位置
+- 9 “下一张”按钮，点击后可以同时将当前文件夹下对应的IR和RGB图像的下一幅图像显示出来
+- 10 “打开IR”按钮， 点击后可以选取需要操作的IR图像，并显示在5的位置
+- 11 “删除”按钮，点击后可以永久地同时删除当前操作的RGB图像和IR图像，用来清洗无效数据
+- 12 “保存”按钮， 点击后可以保存当前被改动的6的位置的黑色像素图
+- 快捷键A：按下之后作用等同于 7 “上一张”按钮
+- 快捷键S：按下之后作用等同于 12 “保存”按钮
+- 快捷键D：按下之后作用等同于 9 “下一张”按钮
+- 快捷键C：按下之后可以清空当前三幅图像上的所有笔迹
+## 5 代码使用说明
+下面的代码为读取
+```python
+self.imageName = "C:\\pyqt\\DATA\\1\\RGB\\CQ1\\120_RGB_CQ1_1_"  # rgb读取路径
+self.imgNum = 8535
+self.imageName_1 = "C:\\pyqt\\DATA\\1\\IR\\CQ1\\120_IR_CQ1_1_"  # ir读取路径
+self.imgNum_1 = 8535
+self.savePath = "C:\\pyqt\\DATA\\1\\face_cover\\"  # 黑图保存路径
+```
