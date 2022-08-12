@@ -155,6 +155,7 @@ class Winform(QWidget):
     def open_1(self):
         imgName, imgType = QFileDialog.getOpenFileName(self, "打开图片", "C:\\pyqt\\DATA\\1\\IR\\CQ1", "*.jpg;;*.png;;All Files(*)")
         # jpg = QPixmap(imgName).scaled(self.pix.width(), self.pix.height())
+        self.imageName_1 = imgName[:35]
         self.imgNum_1 = int(imgName[35:39])
         png = QPixmap(imgName)
         # self.label.setPixmap(png)
@@ -170,6 +171,7 @@ class Winform(QWidget):
         # jpg = QPixmap(imgName).scaled(self.pix.width(), self.pix.height())
         print(imgName)
         # print(float(imgName[37:41]))
+        self.imageName = imgName[:37]
         self.imgNum = int(imgName[37:41])
         png = QPixmap(imgName)
         # self.label.setPixmap(png)
